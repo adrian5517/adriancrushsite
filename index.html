@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Hi Po</title>
+</head>
+<body>
+	<div class="button-wrapper">
+		<button class="btn-blue" style="transition: all 0.1s ease 0s; transform: translate(0px, 0px) rotateX(0deg) rotateY(0deg); box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px;">No Comment Po</button>
+	</div>
+
+	<script>
+		const button = document.querySelector('button');
+
+		const distanceBetween = (p1x, p1y, p2x, p2y) => {
+			const dx = p1x - p2x;
+			const dy = p1y - p2y;
+			return Math.sqrt(dx * dx + dy * dy);
+		};
+
+		document.addEventListener('mousemove', event => {
+			const radius = Math.max(button.offsetWidth * 0.75, button.offsetHeight * 0.75, 100);
+
+			const bx = button.parentNode.offsetLeft + button.offsetLeft + button.offsetWidth / 2;
+			const by = button.parentNode.offsetTop + button.offsetTop + button.offsetHeight / 2;
+
+			const dist = distanceBetween(event.clientX, event.clientY, bx, by);
+			const angle = Math.atan2(event.clientY - by, event.clientX - bx);
+
+			const ox = -1 * Math.cos(angle) * Math.max(radius - dist, 0);
+			const oy = -1 * Math.sin(angle) * Math.max(radius - dist, 0);
+
+			const rx = oy / 2;
+			const ry = -ox / 2;
+
+			button.style.transition = 'all 0.1s ease';
+			button.style.transform = `translate(${ox}px, ${oy}px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+			button.style.boxShadow = `0px ${Math.abs(oy)}px ${Math.abs(oy) / radius * 40}px rgba(0,0,0,0.15)`;
+		});
+
+		const nocheat = () => (button.textContent = 'No cheating 🙅‍♂️');
+		const notouch = () => (button.textContent = "This thing doesn't work with touch 😢");
+
+		button.addEventListener('click', event => (button.textContent = 'You win 🎉🙃'));
+		button.addEventListener('keydown', event => {
+			event.preventDefault();
+			nocheat();
+		});
+		button.click = nocheat;
+
+		if (navigator.userAgent.match(/Android|iPhone|iPad|iPod/i)) notouch();
+		window.addEventListener('touchstart', notouch);
+	</script>
+
+	<div class="g1">
+		<div class="group1">
+			<button id="btt1">NO</button>
+			<button id="btt2">NO</button>
+			<button id="btt3">NO</button>
+			<button id="btt4">NO</button>
+			<button id="btt5">NO</button>
+			<button id="btt6">NO</button>
+			<button id="btt7">NO</button>
+			<button id="btt8">NO</button>
+			<button id="btt9">NO</button>
+			<button id="btt10">NO</button>
+			<button id="btt11">NO</button>
+			<button id="btt12">NO</button>
+		</div>
+
+		<div class="images1">
+			<img class="sadcat" id="sadcat" src="images/sadcat.jpeg" alt="">
+			<img class="crying" id="crying" src="images/sad-guy-crying-guy.gif" alt="">
+			<img class="sadboi" id="sadboi" src="images/sadboi.jpeg" alt="">
+			<img id="sadsad" src="images/sadsad.jpeg" alt="">
+		</div>
+	</div>
+
+	<div class="ask">
+		<p style="color: rgb(255, 254, 254);"> <span class="crush">HI CRUSH</span> <br>
+			Gustuhon taka, Crush moman ako? </p>
+		<div class="btn">
+			<a href="yes.html"><button id="btn1">Yes</button></a>
+			<img id="hands" src="images/hands.png" alt="">
+			<button id="btn2">No</button>
+		</div>
+		
+	</div>
+
+	<div class="g1">
+		<div class="images2">
+			<div class="group1">
+				<button id="bbtt1">NO</button>
+				<button id="bbtt2">NO</button>
+				<button id="bbtt3">NO</button>
+				<button id="bbtt4">NO</button>
+				<button id="bbtt5">NO</button>
+				<button id="bbtt6">NO</button>
+				<button id="bbtt7">NO</button>
+				<button id="bbtt8">NO</button>
+				<button id="bbtt9">NO</button>
+				<button id="bbtt10">NO</button>
+				<button id="bbtt11">NO</button>
+				<button id="bbtt12">NO</button>
+			</div>
+		</div>
+
+		<div class="images1">
+			<img class="sadman" id="sadman" src="images/sadman.jpeg" alt="">
+			<img class="hahahuhu" id="hahahuhu" src="images/sad-man-tik-tok-meme.gif" alt="">
+			<img id="hang" src="images/hang.jpeg" alt="">
+			<img id="frog" src="frog.jpeg" alt="">
+		</div>
+	</div>
+
+	<div class="fff">
+		<p style="color: bisque;">created by Adrian Juel</p>
+	</div>
+
+	<script src="proposalv2.js"></script>
+</body>
+</html>
